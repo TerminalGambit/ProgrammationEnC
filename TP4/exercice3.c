@@ -245,7 +245,7 @@ void test_inserer(void) {
     ajout_fin(&L, 1);
     ajout_fin(&L, 17);
     afficher_liste(L);
-    inserer(&L, 5, 1);
+    inserer(&L, 5, 0);
     afficher_liste(L);
     liberer_liste(L);
 }
@@ -313,6 +313,31 @@ void test_map(void) {
     afficher_liste(L);
     liberer_liste(L);
 }
+
+/* void supprimer(liste L, int f(int)) supprime de la liste L toutes les valeurs x telles que f(x) soit vrai. */
+
+void supprimer(liste L, int f(int)) {
+    cellule *c = L.premier;
+    cellule *prev = NULL;
+    while (c != NULL) {
+        if (f(c->contenu)) {
+            if (prev == NULL) {
+                L.premier = c->suivant;
+            } else {
+                prev->suivant = c->suivant;
+            }
+            free(c);
+            c = prev->suivant;
+        } else {
+            prev = c;
+            c = c->suivant;
+        }
+    }
+}
+
+void test_supprimer(void) {
+
+} 
 
 int main(void) {
     printf("\nTest sur la partie I :\n");
