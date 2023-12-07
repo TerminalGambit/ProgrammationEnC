@@ -185,6 +185,23 @@ void test_tableau_vers_liste(void) {
     liberer_liste(L);
 }
 
+/* int lire_valeur(liste L, int i, int *x) lit la valeur d'indice i de la liste et la stocke dans le pointeur x. 
+Renvoie -1 en cas d'erreur. */
+
+int lire_valeur(liste L, int i, int *x) {
+    int n = 0;
+    cellule *c = L.premier;
+    while (c != NULL) {
+        if (n == i) {
+            *x = c->contenu;
+            return 0;
+        }
+        n++;
+        c = c->suivant;
+    }
+    return -1
+}
+
 int main(void) {
     printf("\nTest sur la partie I :\n");
     test_partie_1();
