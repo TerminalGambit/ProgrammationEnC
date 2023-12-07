@@ -344,7 +344,7 @@ void test_supprimer(void) {
     ajout_fin(&L, 20);
     ajout_fin(&L, 1);
     ajout_fin(&L, 17);
-    supprimer(L, 1);
+    supprimer(L, g);
     afficher_liste(L);
     liberer_liste(L);
 }
