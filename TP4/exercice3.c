@@ -316,18 +316,20 @@ void test_map(void) {
 
 /* void supprimer(liste L, int f(int)) supprime de la liste L toutes les valeurs x telles que f(x) soit vrai. */
 
-void supprimer(liste L, int g(int)) {
-    cellule *c = L.premier;
+void supprimer(liste *L, int g(int)) {
+    cellule *c = L->premier;
     cellule *prev = NULL;
     while (c != NULL) {
         if (g(c->contenu)) {
             if (prev == NULL) {
-                L.premier = c->suivant;
+                L->premier = c->suivant;
+                free(c);
+                c = L->premier;
             } else {
                 prev->suivant = c->suivant;
+                free(c);
+                c = prev->suivant;
             }
-            free(c);
-            c = prev->suivant;
         } else {
             prev = c;
             c = c->suivant;
@@ -344,7 +346,7 @@ void test_supprimer(void) {
     ajout_fin(&L, 20);
     ajout_fin(&L, 1);
     ajout_fin(&L, 17);
-    supprimer(L, g);
+    supprimer(&L, g);
     afficher_liste(L);
     liberer_liste(L);
 }
