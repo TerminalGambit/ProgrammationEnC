@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 /*
 Le but de cet exercice est de programmer les fonctions de base permettant de définir et de manipuler des listes chaînées.
@@ -149,12 +150,94 @@ void test_copie_lc(void) {
     affiche_lc(copie_lc(L));
 }
 
+/* 12. la fonction ajout_fin_lc qui ajoute un élément à la toute fin de la liste. */
+
+liste_chainee ajout_fin_lc(int x, liste_chainee L) {
+    if (est_vide(L)) {
+        return ajout_lc(x, nouvelle_lc());
+    } else {
+        return ajout_lc(head(L), ajout_fin_lc(x, tail(L)));
+    }
+}
+
+void test_ajout_fin_lc(void) {
+    liste_chainee L = nouvelle_lc();
+    L = ajout_lc(20, L);
+    L = ajout_lc(1, L);
+    L = ajout_lc(17, L);
+    affiche_lc(ajout_fin_lc(23, L));
+}
+
+/* 13. la fonction max_lc qui affiche le plus grand élément de la liste. 
+Si la liste est vide on renverra pas convention -INT_MAX-1 qui est le plus petit entier possible (INT_MAX est définie dans la bibliotèque limits.h) */
+
+int max_lc(liste_chainee L) {
+    if (est_vide(L)) {
+        return -INT_MAX-1;
+    } else {
+        int max = max_lc(tail(L));
+        if (head(L) > max) {
+            return head(L);
+        } else {
+            return max;
+        }
+    }
+}
+
+void test_max_lc(void) {
+    liste_chainee L = nouvelle_lc();
+    int i;
+    affiche_lc(L);
+    printf("%d\n", max_lc(L));
+    for (i = 0; i < 5; i++) {
+        L = ajout_lc(i * 5, L);
+        affiche_lc(L);
+        printf("%d\n", max_lc(L));
+    }
+}
+
+/* 14. la fonction map_lc qui prend en argument une liste et un pointeur vers une fonction et 
+renvoie une nouvelle liste obtenue en appliquant la fonction à tous les éléments de l'ancienne liste.
+Pour une liste L de la forme : 
+[a] -> [b] -> [c] -> [d] -> NULL
+l'appel de map_lc(L, f) renvoie une nouvelle liste valant : 
+[f(a)] -> [f(b)] -> [f(c)] -> [f(d)] -> NULL
+*/
+
+liste_chainee map_lc(liste_chainee L, int (*f)(int)) {
+    if (est_vide(L)) {
+        return nouvelle_lc();
+    } else {
+        return ajout_lc(f(head(L)), map_lc(tail(L), f));
+    }
+}
+
+int f(int x) {
+    return x * x;
+}
+
+void test_map_lc(void) {
+    liste_chainee L = nouvelle_lc();
+    int i;
+    for (i = 0; i < 5; i++) {
+        L = ajout_lc(i * 5, L);
+    }
+    affiche_lc(L);
+    affiche_lc(map_lc(L, f));
+}
+
 int main(void) {
-    printf("Test sur la fonction affiche_lc :\n");
+    printf("\nTest sur la fonction affiche_lc :\n");
     test_affiche_lc();
-    printf("Test sur la fonction longueur_lc :\n");
+    printf("\nTest sur la fonction longueur_lc :\n");
     test_longueur_lc();
-    printf("Test sur la fonction copie_lc :\n");
+    printf("\nTest sur la fonction copie_lc :\n");
     test_copie_lc();
+    printf("\nTest sur la fonction ajout_fin_lc :\n");
+    test_ajout_fin_lc();
+    printf("\nTest sur la fonction max_lc :\n");
+    test_max_lc();
+    printf("\nTest sur la fonction map_lc :\n");
+    test_map_lc();
     return 0;
 }
