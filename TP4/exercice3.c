@@ -165,6 +165,25 @@ void test_pop_liste(void) {
     liberer_liste(L);
 }
 
+/* Partie III : fonctions plus avancées */
+
+/* 6. liste tableau_vers_liste(int tableau[], int taille) construit une liste à partir d'un tableau. */
+
+liste tableau_vers_liste(int tableau[], int taille) {
+    liste L = nouvelle_liste();
+    for (int i = 0; i < taille; i++) {
+        ajout_fin(&L, tableau[i]);
+    }
+    return L;
+}
+
+void test_tableau_vers_liste(void) {
+    int tableau[] = {20, 1, 17};
+    liste L = tableau_vers_liste(tableau, 3);
+    afficher_liste(L);
+    liberer_liste(L);
+}
+
 int main(void) {
     printf("\nTest sur la partie I :\n");
     test_partie_1();
