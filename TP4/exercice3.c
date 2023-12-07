@@ -193,5 +193,7 @@ int main(void) {
     test_longueur();
     printf("\ntest sur la fonction pop_liste :\n");
     test_pop_liste();
+    printf("\nTest sur la fonction tableau_vers_liste :\n");
+    test_tableau_vers_liste();
     return 0;
 }
