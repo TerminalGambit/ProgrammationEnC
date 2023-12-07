@@ -344,10 +344,10 @@ void test_supprimer(void) {
     ajout_fin(&L, 20);
     ajout_fin(&L, 1);
     ajout_fin(&L, 17);
-    supprimer(L, g);
+    supprimer(L, 1);
     afficher_liste(L);
     liberer_liste(L);
-} 
+}
 
 int main(void) {
     printf("\nTest sur la partie I :\n");
