@@ -219,15 +219,21 @@ void test_lire_valeur(void) {
 int inserer(liste *L, int x, int i) {
     int n = 0;
     cellule *c = L->premier;
+    cellule *prev = NULL;
     while (c != NULL) {
         if (n == i) {
             cellule *d = malloc(sizeof(cellule));
             d->contenu = x;
-            d->suivant = c->suivant;
-            c->suivant = d;
+            d->suivant = c;
+            if (prev == NULL) {
+                L->premier = d;
+            } else {
+                prev->suivant = d;
+            }
             return 0;
         }
         n++;
+        prev = c;
         c = c->suivant;
     }
     return -1;
