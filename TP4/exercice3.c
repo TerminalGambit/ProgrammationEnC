@@ -250,6 +250,26 @@ void test_inserer(void) {
     liberer_liste(L);
 }
 
+/* int max(liste L, int *x) stocke dans x la plus grande valeur de la liste L. Si la liste renvoie -1.
+Sinon, renvoie l'indice de cette valeur. */
+
+int max(liste L, int *x) {
+    int n = 0;
+    int max = 0;
+    int indice = 0;
+    cellule *c = L.premier;
+    while (c != NULL) {
+        if (c->contenu > max) {
+            max = c->contenu;
+            indice = n;
+        }
+        n++;
+        c = c->suivant;
+    }
+    *x = max;
+    return indice;
+}
+
 int main(void) {
     printf("\nTest sur la partie I :\n");
     test_partie_1();
