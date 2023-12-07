@@ -149,11 +149,11 @@ int pop_liste(liste *L, int *x) {
 
 void test_pop_liste(void) {
     liste L = nouvelle_liste();
+    int x;
     ajout_fin(&L, 20);
     ajout_fin(&L, 1);
     ajout_fin(&L, 17);
     afficher_liste(L); /* 20 1 17 */
-    int x;
     pop_liste(&L, &x);
     printf("x = %d\n", x);
     afficher_liste(L); /* 1 17 */
