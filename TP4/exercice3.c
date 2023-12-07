@@ -81,7 +81,40 @@ void test_partie_1(void) {
     liberer_liste(L);
 }
 
+/* Partie II : autres fonctions de base */
+
+/* Ecrire et testez les trois fonctions suivantes. On fera bien attention à la gestion mémoire. */
+
+/* 3. void ajout_fin(liste *L, int x) */
+
+void ajout_fin(liste *L, int x) {
+    cellule *c = malloc(sizeof(cellule));
+    c->contenu = x;
+    c->suivant = NULL;
+    if (est_vide(*L)) {
+        L->premier = c;
+    } else {
+        cellule *derniere = L->premier;
+        while (derniere->suivant != NULL) {
+            derniere = derniere->suivant;
+        }
+        derniere->suivant = c;
+    }
+}
+
+void test_ajout_fin(void) {
+    liste L = nouvelle_liste();
+    ajout_fin(&L, 20);
+    ajout_fin(&L, 1);
+    ajout_fin(&L, 17);
+    afficher_liste(L);
+    liberer_liste(L);
+}
+
 int main(void) {
+    printf("\nTest sur la partie I :\n");
     test_partie_1();
+    printf("\nTest sur la fonction ajout_fin :\n");
+    test_ajout_fin();
     return 0;
 }
