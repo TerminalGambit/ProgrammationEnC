@@ -256,7 +256,7 @@ Sinon, renvoie l'indice de cette valeur. */
 int max(liste L, int *x) {
     int n = 0;
     int max = 0;
-    int indice = 0;
+    int indice = -1;
     cellule *c = L.premier;
     while (c != NULL) {
         if (c->contenu > max) {
@@ -268,6 +268,21 @@ int max(liste L, int *x) {
     }
     *x = max;
     return indice;
+}
+
+void test_max(void) {
+    liste L = nouvelle_liste();
+    ajout_fin(&L, 20);
+    ajout_fin(&L, 1);
+    ajout_fin(&L, 17);
+    afficher_liste(L);
+    print("%d", max(L));
+    liberer_liste(L);
+
+    liste L1 = nouvelle_liste();
+    afficher_liste(L1);
+    printf("%d", max(L1));
+    liberer_liste(L1);
 }
 
 int main(void) {
@@ -285,5 +300,7 @@ int main(void) {
     test_lire_valeur();
     printf("\nTest sur la fonction inserer :\n");
     test_inserer();
+    printf("\nTest sur la fonction max :\n");
+    test_max();
     return 0;
 }
