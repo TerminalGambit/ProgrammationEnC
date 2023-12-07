@@ -148,7 +148,7 @@ int pop_liste(liste *L, int *x) {
     }
     *x = c->contenu;
     L->premier = c->suivant;
-    /* free(c); */
+    free(c);
     return 0;   
 }
 
