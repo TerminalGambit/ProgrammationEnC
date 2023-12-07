@@ -316,11 +316,11 @@ void test_map(void) {
 
 /* void supprimer(liste L, int f(int)) supprime de la liste L toutes les valeurs x telles que f(x) soit vrai. */
 
-void supprimer(liste L, int f(int)) {
+void supprimer(liste L, int g(int)) {
     cellule *c = L.premier;
     cellule *prev = NULL;
     while (c != NULL) {
-        if (f(c->contenu)) {
+        if (g(c->contenu)) {
             if (prev == NULL) {
                 L.premier = c->suivant;
             } else {
@@ -335,8 +335,18 @@ void supprimer(liste L, int f(int)) {
     }
 }
 
-void test_supprimer(void) {
+int g(int x) { /* Fonction est_pair*/
+    return 1 - (x%2);
+}
 
+void test_supprimer(void) {
+    liste L = nouvelle_liste();
+    ajout_fin(&L, 20);
+    ajout_fin(&L, 1);
+    ajout_fin(&L, 17);
+    supprimer(L, g);
+    afficher_liste(L);
+    liberer_liste(L);
 } 
 
 int main(void) {
@@ -358,5 +368,7 @@ int main(void) {
     test_max();
     printf("\nTest sur la fonction map :\n");
     test_map();
+    printf("\nTest sur la fonction supprimer :\n");
+    test_supprimer();
     return 0;
 }
