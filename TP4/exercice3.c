@@ -272,16 +272,20 @@ int max(liste L, int *x) {
 
 void test_max(void) {
     liste L = nouvelle_liste();
+    liste L1 = nouvelle_liste();
+    int *x;
+    int *y;
     ajout_fin(&L, 20);
     ajout_fin(&L, 1);
     ajout_fin(&L, 17);
     afficher_liste(L);
-    print("%d", max(L));
+    print("%d", max(L, *x));
+    printf("%d", x);
     liberer_liste(L);
 
-    liste L1 = nouvelle_liste();
     afficher_liste(L1);
-    printf("%d", max(L1));
+    printf("%d", max(L1, *y));
+    printf("%d", y);
     liberer_liste(L1);
 }
 
