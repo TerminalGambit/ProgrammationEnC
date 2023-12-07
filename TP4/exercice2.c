@@ -157,10 +157,12 @@ liste_chainee ajout_fin_lc(int x, liste_chainee L) {
 
 void test_ajout_fin_lc(void) {
     liste_chainee L = nouvelle_lc();
+    liste_chainee L1;
     L = ajout_lc(20, L);
     L = ajout_lc(1, L);
     L = ajout_lc(17, L);
-    affiche_lc(ajout_fin_lc(23, L));
+    affiche_lc(L1 = ajout_fin_lc(23, L));
+    liberer_lc(L1);
     liberer_lc(L);
 }
 
@@ -215,12 +217,14 @@ int f(int x) {
 
 void test_map_lc(void) {
     liste_chainee L = nouvelle_lc();
+    liste_chainee L1;
     int i;
     for (i = 0; i < 5; i++) {
         L = ajout_lc(i * 5, L);
     }
     affiche_lc(L);
-    affiche_lc(map_lc(L, f));
+    affiche_lc(L1 = map_lc(L, f));
+    liberer_lc(L1);
     liberer_lc(L);
 }
 
