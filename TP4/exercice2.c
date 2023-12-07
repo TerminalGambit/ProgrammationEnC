@@ -49,21 +49,13 @@ int est_vide(liste_chainee L) {
 /* 6. int head(liste_chainee L) renvoyant la valeur du premier élément de la liste (ne fonctionne que si L est non vide). */
 
 int head(liste_chainee L) {
-    if (est_vide(L)) {
-        return 0;
-    } else {
-        return L->contenu;
-    }
+    return L->contenu;
 }
 
 /* 7. liste_chainee tail(liste_chainee L) renvoyant la suite de la liste (ne fonctionne que si L est non vide). */
 
 liste_chainee tail(liste_chainee L) {
-    if (est_vide(L)) {
-        return 0;
-    } else {
-        return L->suivant;
-    }
+    return L->suivant;
 }
 
 /* 8. liste_chainee ajout_lc(int x, liste_chainee L) qui renvoie une nouvelle liste dont le premier élément est x et dont la suite est L. */
