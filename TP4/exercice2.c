@@ -148,6 +148,7 @@ void test_copie_lc(void) {
     L = ajout_lc(1, L);
     L = ajout_lc(17, L);
     affiche_lc(copie_lc(L));
+    liberer_lc(L);
 }
 
 /* 12. la fonction ajout_fin_lc qui ajoute un élément à la toute fin de la liste. */
@@ -166,6 +167,7 @@ void test_ajout_fin_lc(void) {
     L = ajout_lc(1, L);
     L = ajout_lc(17, L);
     affiche_lc(ajout_fin_lc(23, L));
+    liberer_lc(L);
 }
 
 /* 13. la fonction max_lc qui affiche le plus grand élément de la liste. 
@@ -194,6 +196,7 @@ void test_max_lc(void) {
         affiche_lc(L);
         printf("%d\n", max_lc(L));
     }
+    liberer_lc(L);
 }
 
 /* 14. la fonction map_lc qui prend en argument une liste et un pointeur vers une fonction et 
@@ -224,6 +227,7 @@ void test_map_lc(void) {
     }
     affiche_lc(L);
     affiche_lc(map_lc(L, f));
+    liberer_lc(L);
 }
 
 int main(void) {
