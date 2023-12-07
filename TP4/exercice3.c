@@ -289,6 +289,31 @@ void test_max(void) {
     liberer_liste(L1);
 }
 
+/* void map(liste L, int f(int)) applique la fonction f à chaque élément de L. */
+
+void map(liste L, int f(int)) {
+    cellule *c = L.premier;
+    while (c != NULL) {
+        c->contenu = f(c->contenu);
+        c = c->suivant;
+    }
+}
+
+int f(int x) {
+    return x*x;
+}
+
+void test_map(void) {
+    liste L = nouvelle_liste();
+    ajout_fin(&L, 20);
+    ajout_fin(&L, 1);
+    ajout_fin(&L, 17);
+    afficher_liste(L);
+    map(L, f);
+    afficher_liste(L);
+    liberer_liste(L);
+}
+
 int main(void) {
     printf("\nTest sur la partie I :\n");
     test_partie_1();
@@ -306,5 +331,7 @@ int main(void) {
     test_inserer();
     printf("\nTest sur la fonction max :\n");
     test_max();
+    printf("\nTest sur la fonction map :\n");
+    test_map();
     return 0;
 }
