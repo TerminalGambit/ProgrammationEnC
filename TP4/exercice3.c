@@ -111,10 +111,36 @@ void test_ajout_fin(void) {
     liberer_liste(L);
 }
 
+/* int longueur(liste L) */
+
+int longueur(liste L) {
+    int n = 0;
+    cellule *c = L.premier;
+    while (c != NULL) {
+        n++;
+        c = c->suivant;
+    }
+    return n;
+}
+
+void test_longueur(void) {
+    liste L = nouvelle_liste();
+    ajout_fin(&L, 20);
+    ajout_fin(&L, 1);
+    ajout_fin(&L, 17);
+    afficher_liste(L); /* 20 1 17 */
+    printf("La liste a une longueur de %d\n", longueur(L));
+    liberer_liste(L);
+}
+
+/* int pop_liste(liste *L, int *x) : supprime le premier élément de la liste et le stocke dans le pointeur x. 
+Renvoie -1 en cas d'erreur. */
 int main(void) {
     printf("\nTest sur la partie I :\n");
     test_partie_1();
     printf("\nTest sur la fonction ajout_fin :\n");
     test_ajout_fin();
+    printf("\nTest sur la fonction longueur :\n");
+    test_longueur();
     return 0;
 }
