@@ -137,10 +137,10 @@ void test_longueur(void) {
 Renvoie -1 en cas d'erreur. */
 
 int pop_liste(liste *L, int *x) {
+    cellule *c = L->premier;
     if (est_vide(*L)) {
         return -1;
     }
-    cellule *c = L->premier;
     *x = c->contenu;
     L->premier = c->suivant;
     /* free(c); */
