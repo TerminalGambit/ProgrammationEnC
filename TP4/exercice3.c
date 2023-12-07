@@ -107,7 +107,7 @@ void test_ajout_fin(void) {
     ajout_fin(&L, 20);
     ajout_fin(&L, 1);
     ajout_fin(&L, 17);
-    afficher_liste(L);
+    afficher_liste(L); /* 20 1 17 */
     liberer_liste(L);
 }
 
