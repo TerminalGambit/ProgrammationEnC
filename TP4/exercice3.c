@@ -199,8 +199,20 @@ int lire_valeur(liste L, int i, int *x) {
         n++;
         c = c->suivant;
     }
-    return -1
+    return -1;
 }
+
+void test_lire_valeur(void) {
+    int x;
+    liste L = nouvelle_liste();
+    ajout_fin(&L, 20);
+    ajout_fin(&L, 1);
+    ajout_fin(&L, 17);
+    afficher_liste(L); /* 20 1 17 */
+    lire_valeur(L, 1, &x);
+    printf("x = %d\n", x);
+    liberer_liste(L);
+} 
 
 int main(void) {
     printf("\nTest sur la partie I :\n");
@@ -213,5 +225,7 @@ int main(void) {
     test_pop_liste();
     printf("\nTest sur la fonction tableau_vers_liste :\n");
     test_tableau_vers_liste();
+    printf("\ntest sur la fonction lire_valeur :\n");
+    test_lire_valeur();
     return 0;
 }
