@@ -41,7 +41,12 @@ liste nouvelle_liste(void) {
 /* (b) void liberer_liste(liste L) */
 
 void liberer_liste(liste L) {
-    free(L.premier);
+    cellule *c = L.premier;
+    while (c != NULL) {
+        cellule *suivant = c->suivant;
+        free(c);
+        c = suivant;
+    }
 }
 
 /* (c) int est_vide(liste L) */
