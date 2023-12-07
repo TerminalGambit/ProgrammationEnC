@@ -32,6 +32,7 @@ void liberer_lc(liste_chainee L) {
         liberer_lc(L->suivant);
         free(L);
     }
+    free(NULL);
 }
 
 /* 4. liste_chainee nouvelle_lc() renvoyant une liste chaînée vide. */
