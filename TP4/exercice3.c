@@ -171,7 +171,8 @@ void test_pop_liste(void) {
 
 liste tableau_vers_liste(int tableau[], int taille) {
     liste L = nouvelle_liste();
-    for (int i = 0; i < taille; i++) {
+    int i;
+    for (i = 0; i < taille; i++) {
         ajout_fin(&L, tableau[i]);
     }
     return L;
