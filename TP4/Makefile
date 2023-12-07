@@ -5,7 +5,7 @@ CFLAGS = -Wall -ansi -pedantic
 CC = gcc
 
 # Tous les exécutables à créer
-EXERCICES = exercice1
+EXERCICES = exercice1 exercice2
 
 # Créer tous les exécutables
 all: $(EXERCICES)
