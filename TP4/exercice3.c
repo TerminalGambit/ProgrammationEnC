@@ -279,13 +279,13 @@ void test_max(void) {
     ajout_fin(&L, 1);
     ajout_fin(&L, 17);
     afficher_liste(L);
-    printf("%d", max(L, &x));
-    printf("%d", x);
+    printf("max(L, &x) = %d\n", max(L, &x));
+    printf("x = %d\n", x);
     liberer_liste(L);
 
     afficher_liste(L1);
-    printf("%d", max(L1, &y));
-    printf("%d", y);
+    printf("max(L, &x) = %d\n", max(L1, &y));
+    printf("x = %d\n", y);
     liberer_liste(L1);
 }
 
