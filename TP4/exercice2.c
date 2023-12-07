@@ -32,7 +32,6 @@ void liberer_lc(liste_chainee L) {
         liberer_lc(L->suivant);
         free(L);
     }
-    free(NULL);
 }
 
 /* 4. liste_chainee nouvelle_lc() renvoyant une liste chaînée vide. */
@@ -74,7 +73,6 @@ liste_chainee ajout_lc(int x, liste_chainee L) {
     new->contenu = x;
     new->suivant = L;
     return new;
-    free(new);
 }
 
 /* Partie III : utilisation de notre type */
