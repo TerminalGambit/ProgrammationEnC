@@ -214,6 +214,36 @@ void test_lire_valeur(void) {
     liberer_liste(L);
 } 
 
+/* 8. int inserer(liste *L, int x, int i). Insère une valeur à l'indice i demandé. Renvoie -1 si l'indice n'est pas valide. */
+
+int inserer(liste *L, int x, int i) {
+    int n = 0;
+    cellule *c = L->premier;
+    while (c != NULL) {
+        if (n == i) {
+            cellule *d = malloc(sizeof(cellule));
+            d->contenu = x;
+            d->suivant = c->suivant;
+            c->suivant = d;
+            return 0;
+        }
+        n++;
+        c = c->suivant;
+    }
+    return -1;
+}
+
+void test_inserer(void) {
+    liste L = nouvelle_liste();
+    ajout_fin(&L, 20);
+    ajout_fin(&L, 1);
+    ajout_fin(&L, 17);
+    afficher_liste(L);
+    inserer(&L, 5, 1);
+    afficher_liste(L);
+    liberer_liste(L);
+}
+
 int main(void) {
     printf("\nTest sur la partie I :\n");
     test_partie_1();
@@ -225,7 +255,9 @@ int main(void) {
     test_pop_liste();
     printf("\nTest sur la fonction tableau_vers_liste :\n");
     test_tableau_vers_liste();
-    printf("\ntest sur la fonction lire_valeur :\n");
+    printf("\nTest sur la fonction lire_valeur :\n");
     test_lire_valeur();
+    printf("\nTest sur la fonction inserer :\n");
+    test_inserer();
     return 0;
 }
