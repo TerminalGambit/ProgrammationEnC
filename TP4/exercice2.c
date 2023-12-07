@@ -74,7 +74,7 @@ liste_chainee ajout_lc(int x, liste_chainee L) {
     new->contenu = x;
     new->suivant = L;
     return new;
-    liberer_lc(new);
+    free(new);
 }
 
 /* Partie III : utilisation de notre type */
