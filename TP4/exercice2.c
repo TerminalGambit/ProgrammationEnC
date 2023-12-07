@@ -61,7 +61,7 @@ liste_chainee tail(liste_chainee L) {
 /* 8. liste_chainee ajout_lc(int x, liste_chainee L) qui renvoie une nouvelle liste dont le premier élément est x et dont la suite est L. */
 
 liste_chainee ajout_lc(int x, liste_chainee L) {
-    liste_chainee new = malloc(sizeof(cellule));
+    cellule * new = malloc(sizeof(cellule));
     new->contenu = x;
     new->suivant = L;
     return new;
