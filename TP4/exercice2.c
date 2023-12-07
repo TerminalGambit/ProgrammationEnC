@@ -136,10 +136,12 @@ liste_chainee copie_lc(liste_chainee L) {
 
 void test_copie_lc(void) {
     liste_chainee L = nouvelle_lc();
+    liste_chainee L1;
     L = ajout_lc(20, L);
     L = ajout_lc(1, L);
     L = ajout_lc(17, L);
-    affiche_lc(copie_lc(L));
+    affiche_lc(L1 = copie_lc(L));
+    liberer_lc(L1);
     liberer_lc(L);
 }
 
