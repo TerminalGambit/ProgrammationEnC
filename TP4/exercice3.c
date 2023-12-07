@@ -135,6 +135,31 @@ void test_longueur(void) {
 
 /* int pop_liste(liste *L, int *x) : supprime le premier élément de la liste et le stocke dans le pointeur x. 
 Renvoie -1 en cas d'erreur. */
+
+int pop_liste(liste *L, int *x) {
+    if (est_vide(*L)) {
+        return -1;
+    }
+    cellule *c = L->premier;
+    *x = c->contenu;
+    L->premier = c->suivant;
+    /* free(c); */
+    return 0;   
+}
+
+void test_pop_liste(void) {
+    liste L = nouvelle_liste();
+    ajout_fin(&L, 20);
+    ajout_fin(&L, 1);
+    ajout_fin(&L, 17);
+    afficher_liste(L); /* 20 1 17 */
+    int x;
+    pop_liste(&L, &x);
+    printf("x = %d\n", x);
+    afficher_liste(L); /* 1 17 */
+    liberer_liste(L);
+}
+
 int main(void) {
     printf("\nTest sur la partie I :\n");
     test_partie_1();
@@ -142,5 +167,7 @@ int main(void) {
     test_ajout_fin();
     printf("\nTest sur la fonction longueur :\n");
     test_longueur();
+    printf("\ntest sur la fonction pop_liste :\n");
+    test_pop_liste();
     return 0;
 }
