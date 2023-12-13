@@ -11,29 +11,26 @@ implémentera aussi les trois options :
 3. -w (ou --words),*/
 
 #include <stdio.h>
+#include <stdlib.h>
 
-void mywc(FILE *fichier, int *nb_lignes, int *nb_mots, int *nb_caracteres) {
-    int c;
-    int mot = 0;
+int main(int argc, char *argv[]) {
+    int c, nb_lignes = 0, nb_mots = 0, nb_caracteres = 0;
+    FILE *fichier;
+    fichier = fopen(argv[1], "r");
+    if (fichier == NULL) {
+        printf("Erreur lors de l'ouverture du fichier\n");
+        exit(1);
+    }
     while ((c = fgetc(fichier)) != EOF) {
+        nb_caracteres++;
         if (c == '\n') {
-            (*nb_lignes)++;
+            nb_lignes++;
         }
         if (c == ' ' || c == '\n' || c == '\t') {
-            mot = 0;
-        } else if (mot == 0) {
-            mot = 1;
-            (*nb_mots)++;
+            nb_mots++;
         }
-        (*nb_caracteres)++;
     }
-}
-
-int main(void) {
-    int nb_lignes = 0;
-    int nb_mots = 0;
-    int nb_caracteres = 0;
-    mywc(stdin, &nb_lignes, &nb_mots, &nb_caracteres);
-    printf("%d %d %d\n", nb_lignes, nb_mots, nb_caracteres);
+    printf("%d %d %d %s\n", nb_lignes, nb_mots, nb_caracteres, argv[1]);
+    fclose(fichier);
     return 0;
 }
