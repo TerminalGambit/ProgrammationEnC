@@ -238,6 +238,20 @@ liste_allocation nouvelle_liste_allocation(void) {
     return L;
 }
 
+void liberer_liste_allocation(liste_allocation L) {
+    cellule_allocation *c = L.premier;
+    while (c != NULL) {
+        cellule_allocation *suivant = c->suivant;
+        free(c);
+        c = suivant;
+    }
+}
+
+int est_vide_allocation(liste_allocation L) {
+    return L.premier == NULL;
+}
+
+
 /* Création de allocation_malloc_fonction */
 void *allocation_malloc_fonction(size_t taille, int ligne, char *fichier) {
     void *ptr = malloc(taille);
