@@ -12,6 +12,8 @@ Ces fonctions se contenteront d’appeler les fonctions correspondantes de la bi
 #include <stdio.h>
 #include <stdlib.h>
 
+#define MODE_DEBUG 0
+
 static int NB_ALLOC = 0;
 
 void *mon_malloc(size_t size) {
@@ -29,7 +31,9 @@ valeur de la variable statique NB_ALLOC après avoir affiché un message de la f
 à libérer. ».*/
 
 int bilan(void) {
-    printf("Il reste %d pointeurs à libérer.\n", NB_ALLOC);
+    if (MODE_DEBUG) {
+        printf("Il reste %d pointeurs à libérer.\n", NB_ALLOC);
+    }
     return NB_ALLOC;
 }
 

@@ -15,17 +15,9 @@ passez à la question suivante. */
 #include <stdlib.h>
 #include "allocation.h"
 
-#ifdef MODE_DEBUG
-    #define DEBUG_PRINT(msg) printf("%s\n", msg)
-#else
-    #define DEBUG_PRINT(msg)
-#endif
-
 int main(void) {
     int *ptr = mon_malloc(sizeof(int));
     *ptr = 42;
-
-    DEBUG_PRINT("Debug message: Value is set.");
 
     printf("Value: %d\n", *ptr);
     mon_free(ptr);
