@@ -21,5 +21,5 @@ int main(void) {
 
     printf("Value: %d\n", *ptr);
     mon_free(ptr);
-    return 0;
+    return bilan();
 }
