@@ -230,6 +230,13 @@ typedef struct liste_allocation_t {
     cellule_allocation *premier;
 } liste_allocation;
 
+/* Création de la liste à partir des fonctions définies précédemment. */
+
+liste_allocation nouvelle_liste_allocation(void) {
+    liste_allocation L;
+    L.premier = NULL;
+    return L;
+}
 
 /* Création de allocation_malloc_fonction */
 void* allocation_malloc_fonction(size_t size) {
