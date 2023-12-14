@@ -230,64 +230,6 @@ typedef struct liste_allocation_t {
     cellule_allocation *premier;
 } liste_allocation;
 
-/* Création de allocation_nouvelle_liste_fonction */
-liste_allocation allocation_nouvelle_liste_fonction(void) {
-    liste_allocation L;
-    L.premier = NULL;
-    return L;
-}
-
-/* Création de allocation_liberer_liste_fonction */
-void allocation_liberer_liste_fonction(liste_allocation L) {
-    cellule_allocation *c = L.premier;
-    while (c != NULL) {
-        cellule_allocation *suivant = c->suivant;
-        free(c);
-        c = suivant;
-    }
-}
-
-/* Création de allocation_est_vide_fonction */
-int allocation_est_vide_fonction(liste_allocation L) {
-    return L.premier == NULL;
-}
-
-/* Création de allocation_ajout_debut_fonction */
-void allocation_ajout_debut_fonction(void *ptr, int ligne, char *fichier, liste_allocation *L) {
-    cellule_allocation *c = malloc(sizeof(cellule_allocation));
-    c->ptr = ptr;
-    c->ligne = ligne;
-    c->fichier = fichier;
-    c->suivant = L->premier;
-    L->premier = c;
-}
-
-/* Création de allocation_afficher_liste_fonction */
-void allocation_afficher_liste_fonction(liste_allocation L) {
-    cellule_allocation *c = L.premier;
-    while (c != NULL) {
-        printf("%p %d %s\n", c->ptr, c->ligne, c->fichier);
-        c = c->suivant;
-    }
-}
-
-/* Création de allocation_ajout_fin_fonction */
-void allocation_ajout_fin_fonction(void *ptr, int ligne, char *fichier, liste_allocation *L) {
-    cellule_allocation *c = malloc(sizeof(cellule_allocation));
-    c->ptr = ptr;
-    c->ligne = ligne;
-    c->fichier = fichier;
-    c->suivant = NULL;
-    if (allocation_est_vide_fonction(*L)) {
-        L->premier = c;
-    } else {
-        cellule_allocation *derniere = L->premier;
-        while (derniere->suivant != NULL) {
-            derniere = derniere->suivant;
-        }
-        derniere->suivant = c;
-    }
-}
 
 /* Création de allocation_malloc_fonction */
 void* allocation_malloc_fonction(size_t size) {
