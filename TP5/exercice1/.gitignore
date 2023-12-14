@@ -1,2 +1,4 @@
 main.o
 main.d
+allocation_simple.d
+allocation_simple.o
