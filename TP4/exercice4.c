@@ -24,11 +24,9 @@ void mywc(int argc, char *argv[]) {
     for (i = 0; i < argc; i++) {
         if (strcmp(argv[i], "-c") == 0 || strcmp(argv[i], "--bytes") == 0) {
             estBytes = 0;
-        }
-        if (strcmp(argv[i], "-l") == 0 || strcmp(argv[i], "--lines") == 0) {
+        } else if (strcmp(argv[i], "-l") == 0 || strcmp(argv[i], "--lines") == 0) {
             estLines = 0;
-        }
-        if (strcmp(argv[i], "-w") == 0 || strcmp(argv[i], "--words") == 0) {
+        } else if (strcmp(argv[i], "-w") == 0 || strcmp(argv[i], "--words") == 0) {
             estWords = 0;
         }
     }
