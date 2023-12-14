@@ -29,5 +29,7 @@ void mon_free(void *ptr) {
 
 int main(void) {
     printf("Hello World!");
+    mon_malloc(10);
+    mon_free(NULL);
     return 0;
 }
