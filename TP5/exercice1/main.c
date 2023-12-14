@@ -19,3 +19,4 @@ int main(void) {
 }
 
 /* 4. Que se passe-t-il si vous quittez votre fonction main en appelant return bilan();*/
+/* Il reste 0 pointeur à libérer.*/
