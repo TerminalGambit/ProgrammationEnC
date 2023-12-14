@@ -37,7 +37,6 @@ void mon_free(void *ptr);
 
 int main(void) {
     int *ptr = mon_malloc(sizeof(int));
-    printf("Hello World!");
     *ptr = 42;
     printf("Value: %d\n", *ptr);
     mon_free(ptr);
