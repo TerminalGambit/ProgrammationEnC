@@ -3,10 +3,14 @@
 d’afficher « Hello World ! » et un fichier Makefile comme vue dans le cours 5. Une fois que tout marche bien
 passez à la question suivante. */
 
+
+/* 3. Utilisez les deux fonctions précédentes dans votre fichier main.c. */
+
 #include <stdio.h>
 #include <stdlib.h>
+#include "allocation.h"
 
 int main(void) {
-    printf("Hello World !\n");
+    printf("Hello World!");
     return 0;
 }
