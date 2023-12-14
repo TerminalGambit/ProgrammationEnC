@@ -22,7 +22,6 @@ void mywc(int argc, char *argv[]) {
     FILE *fichier;
     int c, nb_lignes = 0, nb_mots = 0, nb_caracteres = 0;
     for (i = 0; i < argc; i++) {
-        printf("%s\n", argv[1]);
         if (strcmp(argv[i], "-c") == 0 || strcmp(argv[i], "--bytes") == 0) {
             estBytes = 0;
         }
