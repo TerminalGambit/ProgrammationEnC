@@ -6,6 +6,12 @@ passez à la question suivante. */
 
 /* 3. Utilisez les deux fonctions précédentes dans votre fichier main.c. */
 
+/* 5. Que se passe-t-il si vous quittez votre fonction main en appelant return bilan();*/
+/* Ca execute la fonction bilan. */
+
+/* 6. Ajoutez une option MODE_DEBUG pour choisir à la compilation d’afficher ou non ces messages. */
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "allocation.h"
@@ -27,7 +33,3 @@ int main(void) {
     return bilan();
 }
 
-/* 5. Que se passe-t-il si vous quittez votre fonction main en appelant return bilan();*/
-/* Ca execute la fonction bilan. */
-
-/* 6. Ajoutez une option MODE_DEBUG pour choisir à la compilation d’afficher ou non ces messages. */
