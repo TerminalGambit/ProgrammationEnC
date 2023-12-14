@@ -7,7 +7,7 @@ OBJETS = $(SOURCE:.c=.o)
 all: $(EXECUTABLE)
 
 $(EXECUTABLE) = $(OBJETS)
-	$(CC) $(OPTIONS) $(OPTIONS) -o $(EXECUTABLE)
+	$(CC) $(OPTIONS) $(OBJETS) -o $(EXECUTABLE)
 %.o: %.c
 	$(CC) $(OPTIONS) -MMD -c $<
 clean:
