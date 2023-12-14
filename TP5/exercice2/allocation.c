@@ -216,6 +216,19 @@ void supprimer(liste *L, int g(int)) {
     }
 }
 
-/* Création de allocation_malloc */
-/* Création de allocation_bilan */
-/* Création de allocation_free */
+/* Création de allocation_malloc_fonction */
+
+void* allocation_malloc_fonction(size_t size) {
+    return malloc(size);
+}
+
+/* Création de allocation_bilan_fonction */
+
+void allocation_bilan_fonction(void) {
+
+}
+/* Création de allocation_free_fonction */
+
+void allocation_free_fonction(void *ptr) {
+    free(ptr); {
+}
