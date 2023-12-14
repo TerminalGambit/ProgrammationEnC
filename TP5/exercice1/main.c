@@ -11,7 +11,6 @@ passez à la question suivante. */
 
 /* 6. Ajoutez une option MODE_DEBUG pour choisir à la compilation d’afficher ou non ces messages. */
 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "allocation.h"
@@ -32,4 +31,3 @@ int main(void) {
     mon_free(ptr);
     return bilan();
 }
-

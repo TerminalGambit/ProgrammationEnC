@@ -32,3 +32,18 @@ int bilan(void) {
     printf("Il reste %d pointeurs à libérer.\n", NB_ALLOC);
     return NB_ALLOC;
 }
+
+/* 
+7. Complétez votre bibliothèque avec les fonctions :
+(a) void *mon_calloc(size_t nmemb, size_t size)
+(b) void *mon_realloc(void *ptr, size_t size); 
+*/
+
+void *mon_calloc(size_t nmemb, size_t size) {
+    NB_ALLOC++;
+    return calloc(nmemb, size);
+}
+
+void *mon_realloc(void *ptr, size_t size) {
+    return realloc(ptr, size);
+}
