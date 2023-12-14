@@ -10,13 +10,24 @@ passez à la question suivante. */
 #include <stdlib.h>
 #include "allocation.h"
 
+#ifdef MODE_DEBUG
+    #define DEBUG_PRINT(msg) printf("%s\n", msg)
+#else
+    #define DEBUG_PRINT(msg)
+#endif
+
 int main(void) {
     int *ptr = mon_malloc(sizeof(int));
     *ptr = 42;
+
+    DEBUG_PRINT("Debug message: Value is set.");
+
     printf("Value: %d\n", *ptr);
     mon_free(ptr);
     return bilan();
 }
 
-/* 4. Que se passe-t-il si vous quittez votre fonction main en appelant return bilan();*/
-/* Il reste 0 pointeur à libérer.*/
+/* 5. Que se passe-t-il si vous quittez votre fonction main en appelant return bilan();*/
+/* Ca execute la fonction bilan. */
+
+/* 6. Ajoutez une option MODE_DEBUG pour choisir à la compilation d’afficher ou non ces messages. */
