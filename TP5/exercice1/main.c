@@ -21,6 +21,14 @@ void mon_free(void *ptr) {
     NB_ALLOC--;
     free(ptr);
 }
+
+Contenu de allocation.h :
+#include <stdio.h>
+#include <stdlib.h>
+
+void *mon_malloc(size_t size);
+void mon_free(void *ptr);
+
 */
 
 #include <stdio.h>
@@ -29,7 +37,9 @@ void mon_free(void *ptr) {
 
 int main(void) {
     printf("Hello World!");
-    mon_malloc(10);
-    mon_free(NULL);
+    int *ptr = mon_malloc(sizeof(int));
+    *ptr = 42;
+    printf("Value: %d\n", *ptr);
+    mon_free(ptr);
     return 0;
 }
