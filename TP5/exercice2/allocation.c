@@ -54,11 +54,15 @@ void afficher_liste_allocation(liste_allocation L) {
     printf("\n");
 }
 
-/* Définition de la liste chaînée */
-liste_allocation liste;
+/* Définition de la liste chaînée par une fonction void initialiser_liste_fonction */
+
+void initialiser_liste_fonction(liste_allocation *L) {
+    L->premier = NULL;
+}
+
 
 /* Création de allocation_malloc_fonction */
-void *allocation_malloc_fonction(size_t taille, int ligne, char *fichier) {
+void *allocation_malloc_fonction(size_t taille, int ligne, char *fichier, liste_allocation *liste) {
     void *ptr = malloc(taille);
     if (ptr == NULL) {
         printf("Erreur d'allocation mémoire à la ligne %d du fichier %s\n", ligne, fichier);
