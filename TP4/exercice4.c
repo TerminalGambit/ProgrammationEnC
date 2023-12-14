@@ -53,31 +53,21 @@ void mywc(int argc, char *argv[]) {
         printf("%d %d %d %s\n", nb_lignes, nb_mots, nb_caracteres, argv[1]);
     } else if (estBytes == 0) {
         printf("%d %s\n", nb_caracteres, argv[1]);
+    } else if (estLines == 0) {
+        printf("%d %s\n", nb_lignes, argv[1]);
+    } else if (estWords == 0) {
+        printf("%d %s\n", nb_mots, argv[1]);
+    } else if (estWords == 0 && estLines == 0) {
+        printf("%d %d %s\n", nb_lignes, nb_mots, argv[1]);
+    } else if (estWords == 0 && estBytes == 0) {
+        printf("%d %d %s\n", nb_caracteres, nb_mots, argv[1]);
+    } else if (estLines == 0 && estBytes == 0) {
+        printf("%d %d %s\n", nb_caracteres, nb_lignes, argv[1]);
     }
     fclose(fichier);
 }
 
 int main(int argc, char *argv[]) {
-    /*
-    int c, nb_lignes = 0, nb_mots = 0, nb_caracteres = 0;
-    FILE *fichier;
-    fichier = fopen(argv[1], "r");
-    if (fichier == NULL) {
-        printf("Erreur lors de l'ouverture du fichier\n");
-        exit(1);
-    }
-    while ((c = fgetc(fichier)) != EOF) {
-        nb_caracteres++;
-        if (c == '\n') {
-            nb_lignes++;
-        }
-        if (c == ' ' || c == '\n' || c == '\t') {
-            nb_mots++;
-        }
-    }
-    printf("%d %d %d %s\n", nb_lignes, nb_mots, nb_caracteres, argv[1]);
-    
-    */
     mywc(argc, argv);
     return 0;
 }
