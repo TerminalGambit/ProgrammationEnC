@@ -251,6 +251,27 @@ int est_vide_allocation(liste_allocation L) {
     return L.premier == NULL;
 }
 
+void ajout_debut_allocation(void *ptr, int ligne, char *fichier, liste_allocation *L) {
+    cellule_allocation *c = malloc(sizeof(cellule_allocation));
+    c->ptr = ptr;
+    c->ligne = ligne;
+    c->fichier = fichier;
+    c->suivant = L->premier;
+    L->premier = c;
+}
+
+void afficher_liste_allocation(liste_allocation L) {
+    cellule_allocation *c = L.premier;
+    while (c != NULL) {
+        printf("%p ligne %d « %s »\n", c->ptr, c->ligne, c->fichier);
+        c = c->suivant;
+    }
+    printf("\n");
+}
+
+/* Création des fonctions de la bibliothèque allocation.h */
+
+
 
 /* Création de allocation_malloc_fonction */
 void *allocation_malloc_fonction(size_t taille, int ligne, char *fichier) {
