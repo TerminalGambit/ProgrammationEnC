@@ -12,11 +12,18 @@ implémentera aussi les trois options :
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void mywc(int argc, char *argv[]) {
     int i;
-    for (i=0; i<argc; i++) {
-        printf("%s", argv[i]);
+    int estBytes = 0;
+    for (i = 0; i < argc; i++) {
+        printf("%s\n", argv[i]);
+        if (strcmp(argv[i], "-c") == 0 || strcmp(argv[i], "--bytes") == 0) {
+            if (estBytes) {
+                printf("yay!");
+            }
+        }
     }
 }
 
@@ -41,6 +48,6 @@ int main(int argc, char *argv[]) {
     printf("%d %d %d %s\n", nb_lignes, nb_mots, nb_caracteres, argv[1]);
     fclose(fichier);
     */
-    mywc(argc, &argv[]);
+    mywc(argc, argv);
     return 0;
 }
