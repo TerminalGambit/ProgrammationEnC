@@ -269,6 +269,12 @@ void afficher_liste_allocation(liste_allocation L) {
     printf("\n");
 }
 
+/* Définition de la liste chaînée */
+liste_allocation liste;
+
+// Initialize the liste using nouvelle_liste_allocation function
+liste = nouvelle_liste_allocation();
+
 /* Création de allocation_malloc_fonction */
 void *allocation_malloc_fonction(size_t taille, int ligne, char *fichier) {
     void *ptr = malloc(taille);
@@ -276,6 +282,8 @@ void *allocation_malloc_fonction(size_t taille, int ligne, char *fichier) {
         printf("Erreur d'allocation mémoire à la ligne %d du fichier %s\n", ligne, fichier);
         exit(1);
     }
+    /* ajout à la liste chaînée déjà définie en dehors de la fonction : la taille puis la ligne et puis le fichier. */
+    ajout_debut_allocation(ptr, ligne, fichier, &liste);
     return ptr;
 }
 
@@ -286,6 +294,7 @@ void *allocation_malloc_fonction(size_t taille, int ligne, char *fichier) {
 0x5646423982a0 ligne 11 « main.c »
 == Fin table allocation ==
 */
+
 void allocation_bilan_fonction(void) {
     printf("%d free /%d malloc\n", 0, 1);
     printf("== Début table allocation ==\n");
