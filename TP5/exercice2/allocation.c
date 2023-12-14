@@ -55,11 +55,9 @@ void afficher_liste_allocation(liste_allocation L) {
 }
 
 /* Définition de la liste chaînée par une fonction void initialiser_liste_fonction */
-
 void initialiser_liste_fonction(liste_allocation *L) {
     L->premier = NULL;
 }
-
 
 /* Création de allocation_malloc_fonction */
 void *allocation_malloc_fonction(size_t taille, int ligne, char *fichier, liste_allocation *liste) {
