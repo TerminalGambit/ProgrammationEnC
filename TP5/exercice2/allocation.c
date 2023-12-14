@@ -290,6 +290,7 @@ void allocation_bilan_fonction(void) {
     printf("%d free /%d malloc\n", 0, 1);
     printf("== Début table allocation ==\n");
     printf("%ld ligne %d « %s »\n", 0x5646423982a0, 11, "main.c");
+    afficher_liste_allocation(nouvelle_liste_allocation());
     printf("== Fin table allocation ==\n\n");
 }
 /* Création de allocation_free_fonction */
