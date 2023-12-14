@@ -16,7 +16,7 @@ implémentera aussi les trois options :
 void mywc(int argc, char *argv[]) {
     int i;
     for (i=0; i<argc; i++) {
-        printf("%s", argv[i])
+        printf("%s", argv[i]);
     }
 }
 
@@ -41,6 +41,6 @@ int main(int argc, char *argv[]) {
     printf("%d %d %d %s\n", nb_lignes, nb_mots, nb_caracteres, argv[1]);
     fclose(fichier);
     */
-   mywc(argc, &argv);
+    mywc(argc, &argv[]);
     return 0;
 }
