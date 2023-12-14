@@ -230,5 +230,5 @@ void allocation_bilan_fonction(void) {
 /* Création de allocation_free_fonction */
 
 void allocation_free_fonction(void *ptr) {
-    free(ptr); {
+    free(ptr);
 }
