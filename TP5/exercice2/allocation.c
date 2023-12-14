@@ -67,7 +67,7 @@ void *allocation_malloc_fonction(size_t taille, int ligne, char *fichier, liste_
         exit(1);
     }
     /* ajout à la liste chaînée déjà définie en dehors de la fonction : la taille puis la ligne et puis le fichier. */
-    ajout_debut_allocation(ptr, ligne, fichier, &liste);
+    ajout_debut_allocation(ptr, ligne, fichier, liste);
     return ptr;
 }
 
