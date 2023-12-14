@@ -19,27 +19,42 @@ void mywc(int argc, char *argv[]) {
     int estBytes = 1;
     int estLines = 1;
     int estWords = 1;
+    FILE *fichier;
+    int c, nb_lignes = 0, nb_mots = 0, nb_caracteres = 0;
     for (i = 0; i < argc; i++) {
-        printf("%s\n", argv[i]);
+        printf("%s\n", argv[1]);
         if (strcmp(argv[i], "-c") == 0 || strcmp(argv[i], "--bytes") == 0) {
             estBytes = 0;
-            if (estBytes == 0) {
-                printf("Il y a --bytes\n");
-            }
         }
         if (strcmp(argv[i], "-l") == 0 || strcmp(argv[i], "--lines") == 0) {
             estLines = 0;
-            if (estLines == 0) {
-                printf("Il y a --lines\n");
-            }
         }
         if (strcmp(argv[i], "-w") == 0 || strcmp(argv[i], "--words") == 0) {
             estWords = 0;
-            if (estWords == 0) {
-                printf("Il y a --words\n");
-            }
         }
     }
+    fichier = fopen(argv[1], "r");
+    if (fichier == NULL) {
+        printf("Erreur lors de l'ouverture du fichier\n");
+        exit(1);
+    }
+    while ((c = fgetc(fichier)) != EOF) {
+        nb_caracteres++;
+        if (c == '\n') {
+            nb_lignes++;
+        }
+        if (c == ' ' || c == '\n' || c == '\t') {
+            nb_mots++;
+        }
+    }
+    if (estBytes == 0 && estLines == 0 && estWords == 0) {
+        printf("%d %d %d %s\n", nb_lignes, nb_mots, nb_caracteres, argv[1]);
+    } else if (estBytes == 1 && estLines == 1 && estWords == 1) {
+        printf("%d %d %d %s\n", nb_lignes, nb_mots, nb_caracteres, argv[1]);
+    } else if (estBytes == 0) {
+        printf("%d %s\n", nb_caracteres, argv[1]);
+    }
+    fclose(fichier);
 }
 
 int main(int argc, char *argv[]) {
@@ -61,7 +76,7 @@ int main(int argc, char *argv[]) {
         }
     }
     printf("%d %d %d %s\n", nb_lignes, nb_mots, nb_caracteres, argv[1]);
-    fclose(fichier);
+    
     */
     mywc(argc, argv);
     return 0;
