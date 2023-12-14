@@ -216,8 +216,38 @@ void supprimer(liste *L, int g(int)) {
     }
 }
 
-/* Création de allocation_malloc_fonction */
+/* Création de la liste chaînée où on va stocker dans une liste chaînée tous les pointeurs alloués et non encore libérés. 
+On stockera aussi la ligne et le fichier à laquelle l’allocation a été faite.*/
 
+typedef struct cellule_allocation_t {
+    void *ptr;
+    int ligne;
+    char *fichier;
+    struct cellule_allocation_t *suivant;
+} cellule_allocation;
+
+typedef struct liste_allocation_t {
+    cellule_allocation *premier;
+} liste_allocation;
+
+/* Création de allocation_nouvelle_liste_fonction */
+liste_allocation allocation_nouvelle_liste_fonction(void) {
+    liste_allocation L;
+    L.premier = NULL;
+    return L;
+}
+
+/* Création de allocation_liberer_liste_fonction */
+void allocation_liberer_liste_fonction(liste_allocation L) {
+    cellule_allocation *c = L.premier;
+    while (c != NULL) {
+        cellule_allocation *suivant = c->suivant;
+        free(c);
+        c = suivant;
+    }
+}
+
+/* Création de allocation_malloc_fonction */
 void* allocation_malloc_fonction(size_t size) {
     return malloc(size);
 }
@@ -230,6 +260,7 @@ void* allocation_malloc_fonction(size_t size) {
 == Fin table allocation ==
 */
 void allocation_bilan_fonction(void) {
+    printf("%d free /%d malloc\n", );
     printf("== Début table allocation ==\n");
     printf("== Fin table allocation ==\n");
 }
