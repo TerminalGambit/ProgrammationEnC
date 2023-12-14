@@ -57,9 +57,6 @@ void afficher_liste_allocation(liste_allocation L) {
 /* Définition de la liste chaînée */
 liste_allocation liste;
 
-// Initialize the liste using nouvelle_liste_allocation function
-liste = nouvelle_liste_allocation();
-
 /* Création de allocation_malloc_fonction */
 void *allocation_malloc_fonction(size_t taille, int ligne, char *fichier) {
     void *ptr = malloc(taille);
