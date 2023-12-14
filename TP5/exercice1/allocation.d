@@ -1,1 +1,0 @@
-allocation.o: allocation.c
