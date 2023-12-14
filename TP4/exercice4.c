@@ -63,6 +63,7 @@ void mywc(int argc, char *argv[]) {
         printf("%d %s\n", nb_lignes, argv[1]);
     } else if (estWords == 0) {
         printf("%d %s\n", nb_mots, argv[1]);
+    }
     fclose(fichier);
 }
 
