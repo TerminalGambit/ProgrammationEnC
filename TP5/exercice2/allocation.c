@@ -239,8 +239,13 @@ liste_allocation nouvelle_liste_allocation(void) {
 }
 
 /* Création de allocation_malloc_fonction */
-void* allocation_malloc_fonction(size_t size) {
-    return malloc(size);
+void *allocation_malloc_fonction(size_t taille, int ligne, char *fichier) {
+    void *ptr = malloc(taille);
+    if (ptr == NULL) {
+        printf("Erreur d'allocation mémoire à la ligne %d du fichier %s\n", ligne, fichier);
+        exit(1);
+    }
+    return ptr;
 }
 
 /* Création de allocation_bilan_fonction */
@@ -251,7 +256,7 @@ void* allocation_malloc_fonction(size_t size) {
 == Fin table allocation ==
 */
 void allocation_bilan_fonction(void) {
-    printf("%d free /%d malloc\n", );
+    printf("%d free /%d malloc\n", 0, 1);
     printf("== Début table allocation ==\n");
     printf("== Fin table allocation ==\n");
 }
