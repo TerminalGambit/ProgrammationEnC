@@ -5,3 +5,4 @@
 
 void *mon_malloc(size_t size);
 void mon_free(void *ptr);
+int bilan(void);

@@ -6,31 +6,6 @@ passez à la question suivante. */
 
 /* 3. Utilisez les deux fonctions précédentes dans votre fichier main.c. */
 
-/* Contenu de allocation.c :
-#include <stdio.h>
-#include <stdlib.h>
-
-static int NB_ALLOC = 0;
-
-void *mon_malloc(size_t size) {
-    NB_ALLOC++;
-    return malloc(size);
-}
-
-void mon_free(void *ptr) {
-    NB_ALLOC--;
-    free(ptr);
-}
-
-Contenu de allocation.h :
-#include <stdio.h>
-#include <stdlib.h>
-
-void *mon_malloc(size_t size);
-void mon_free(void *ptr);
-
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "allocation.h"

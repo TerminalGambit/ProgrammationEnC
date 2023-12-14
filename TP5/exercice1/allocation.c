@@ -23,3 +23,12 @@ void mon_free(void *ptr) {
     NB_ALLOC--;
     free(ptr);
 }
+
+/* 4. Afin de tester votre bibliothèque, ajouter à allocation_simple une fonction int bilan(void) qui renvoie la
+valeur de la variable statique NB_ALLOC après avoir affiché un message de la forme « Il reste 3 pointeurs
+à libérer. ».*/
+
+int bilan(void) {
+    printf("Il reste %d pointeurs à libérer.\n", NB_ALLOC);
+    return NB_ALLOC;
+}
