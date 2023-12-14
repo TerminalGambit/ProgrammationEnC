@@ -15,5 +15,7 @@ int main(void) {
     *ptr = 42;
     printf("Value: %d\n", *ptr);
     mon_free(ptr);
-    return 0;
+    return bilan();
 }
+
+/* 4. Que se passe-t-il si vous quittez votre fonction main en appelant return bilan();*/
