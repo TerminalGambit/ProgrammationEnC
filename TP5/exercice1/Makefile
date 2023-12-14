@@ -1,6 +1,6 @@
 CC = gcc
 OPTIONS = -Wall -ansi -pedantic
-EXECUTABLE = main
+EXECUTABLE = programme
 
 SOURCE = $(wildcard *.c)
 OBJETS = $(SOURCE:.c=.o)
