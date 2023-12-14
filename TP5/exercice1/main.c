@@ -5,4 +5,5 @@ passez à la question suivante. */
 
 int main(void) {
     printf("Hello World !");
+    return 0;
 }

@@ -1,7 +1,7 @@
 CC = gcc
 OPTIONS = -Wall -ansi -pedantic
 EXECUTABLE = programme
-# Ne pas modifier ci-dessous
+
 SOURCE = $(wildcard *.c)
 OBJETS = $(SOURCE:.c=.o)
 all: $(EXECUTABLE)
