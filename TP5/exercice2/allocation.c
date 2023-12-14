@@ -1,31 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Création de allocation_malloc */
-/* Création de allocation_bilan */
-/* Création de allocation_free */
-
-#include <stdio.h>
-#include <stdlib.h>
-
-/* 
-Dans cet exercice, on conserve le type cellule de l'exercice précédent, mais cette fois-ci, une liste sera une structure 
-contenant un unique champs 'premier' pointant  vers la première cellule de la liste.
-
-La différence avec l'exercice précédent est qu'ici, l'objet L ne changera pas (même si la mémoire à laquelle il pointe évoluera au fil du temps).
-Si les deux structures sont proches, l'usage va être assez différent car dans cet exercice la récursion est interdite.
-
-On pourra créer une liste de la façon suivante.
-liste L = nouvelle_liste();
-ajout_debut(&L, 20);
-ajout_debut(&L, 1);
-ajout_debut(&L, 17);
-*/
-
-/* Partie I : création des types*/
-
-/* 1. Créez ainsi un type liste contenant un champs de type cellule* */
-
 typedef struct cellule_t {
     int contenu;
     struct cellule_t *suivant;
@@ -82,17 +57,6 @@ void afficher_liste(liste L) {
     printf("\n");
 }
 
-void test_partie_1(void) {
-    liste L = nouvelle_liste();
-    printf("La liste est vide : %d\n", est_vide(L));
-    ajout_debut(20, &L);
-    ajout_debut(1, &L);
-    ajout_debut(17, &L);
-    afficher_liste(L);
-    printf("La liste est vide : %d\n", est_vide(L));
-    liberer_liste(L);
-}
-
 /* Partie II : autres fonctions de base */
 
 /* Ecrire et testez les trois fonctions suivantes. On fera bien attention à la gestion mémoire. */
@@ -114,15 +78,6 @@ void ajout_fin(liste *L, int x) {
     }
 }
 
-void test_ajout_fin(void) {
-    liste L = nouvelle_liste();
-    ajout_fin(&L, 20);
-    ajout_fin(&L, 1);
-    ajout_fin(&L, 17);
-    afficher_liste(L); /* 20 1 17 */
-    liberer_liste(L);
-}
-
 /* int longueur(liste L) */
 
 int longueur(liste L) {
@@ -133,16 +88,6 @@ int longueur(liste L) {
         c = c->suivant;
     }
     return n;
-}
-
-void test_longueur(void) {
-    liste L = nouvelle_liste();
-    ajout_fin(&L, 20);
-    ajout_fin(&L, 1);
-    ajout_fin(&L, 17);
-    afficher_liste(L); /* 20 1 17 */
-    printf("La liste a une longueur de %d\n", longueur(L));
-    liberer_liste(L);
 }
 
 /* int pop_liste(liste *L, int *x) : supprime le premier élément de la liste et le stocke dans le pointeur x. 
@@ -159,19 +104,6 @@ int pop_liste(liste *L, int *x) {
     return 0;   
 }
 
-void test_pop_liste(void) {
-    liste L = nouvelle_liste();
-    int x;
-    ajout_fin(&L, 20);
-    ajout_fin(&L, 1);
-    ajout_fin(&L, 17);
-    afficher_liste(L); /* 20 1 17 */
-    pop_liste(&L, &x);
-    printf("x = %d\n", x);
-    afficher_liste(L); /* 1 17 */
-    liberer_liste(L);
-}
-
 /* Partie III : fonctions plus avancées */
 
 /* 6. liste tableau_vers_liste(int tableau[], int taille) construit une liste à partir d'un tableau. */
@@ -183,13 +115,6 @@ liste tableau_vers_liste(int tableau[], int taille) {
         ajout_fin(&L, tableau[i]);
     }
     return L;
-}
-
-void test_tableau_vers_liste(void) {
-    int tableau[] = {20, 1, 17};
-    liste L = tableau_vers_liste(tableau, 3);
-    afficher_liste(L);
-    liberer_liste(L);
 }
 
 /* int lire_valeur(liste L, int i, int *x) lit la valeur d'indice i de la liste et la stocke dans le pointeur x. 
@@ -208,18 +133,6 @@ int lire_valeur(liste L, int i, int *x) {
     }
     return -1;
 }
-
-void test_lire_valeur(void) {
-    int x;
-    liste L = nouvelle_liste();
-    ajout_fin(&L, 20);
-    ajout_fin(&L, 1);
-    ajout_fin(&L, 17);
-    afficher_liste(L); /* 20 1 17 */
-    lire_valeur(L, 1, &x);
-    printf("x = %d\n", x);
-    liberer_liste(L);
-} 
 
 /* 8. int inserer(liste *L, int x, int i). Insère une valeur à l'indice i demandé. Renvoie -1 si l'indice n'est pas valide. */
 
@@ -246,17 +159,6 @@ int inserer(liste *L, int x, int i) {
     return -1;
 }
 
-void test_inserer(void) {
-    liste L = nouvelle_liste();
-    ajout_fin(&L, 20);
-    ajout_fin(&L, 1);
-    ajout_fin(&L, 17);
-    afficher_liste(L);
-    inserer(&L, 5, 0);
-    afficher_liste(L);
-    liberer_liste(L);
-}
-
 /* int max(liste L, int *x) stocke dans x la plus grande valeur de la liste L. Si la liste renvoie -1.
 Sinon, renvoie l'indice de cette valeur. */
 
@@ -277,25 +179,6 @@ int max(liste L, int *x) {
     return indice;
 }
 
-void test_max(void) {
-    liste L = nouvelle_liste();
-    liste L1 = nouvelle_liste();
-    int x = 0;
-    int y = 0;
-    ajout_fin(&L, 20);
-    ajout_fin(&L, 1);
-    ajout_fin(&L, 17);
-    afficher_liste(L);
-    printf("max(L, &x) = %d\n", max(L, &x));
-    printf("x = %d\n", x);
-    liberer_liste(L);
-
-    afficher_liste(L1);
-    printf("max(L, &x) = %d\n", max(L1, &y));
-    printf("x = %d\n", y);
-    liberer_liste(L1);
-}
-
 /* void map(liste L, int f(int)) applique la fonction f à chaque élément de L. */
 
 void map(liste L, int f(int)) {
@@ -308,17 +191,6 @@ void map(liste L, int f(int)) {
 
 int f(int x) {
     return x*x;
-}
-
-void test_map(void) {
-    liste L = nouvelle_liste();
-    ajout_fin(&L, 20);
-    ajout_fin(&L, 1);
-    ajout_fin(&L, 17);
-    afficher_liste(L);
-    map(L, f);
-    afficher_liste(L);
-    liberer_liste(L);
 }
 
 /* void supprimer(liste L, int f(int)) supprime de la liste L toutes les valeurs x telles que f(x) soit vrai. */
@@ -343,3 +215,7 @@ void supprimer(liste *L, int g(int)) {
         }
     }
 }
+
+/* Création de allocation_malloc */
+/* Création de allocation_bilan */
+/* Création de allocation_free */
