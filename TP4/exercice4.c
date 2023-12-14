@@ -51,19 +51,18 @@ void mywc(int argc, char *argv[]) {
         printf("%d %d %d %s\n", nb_lignes, nb_mots, nb_caracteres, argv[1]);
     } else if (estBytes == 1 && estLines == 1 && estWords == 1) {
         printf("%d %d %d %s\n", nb_lignes, nb_mots, nb_caracteres, argv[1]);
-    } else if (estBytes == 0) {
-        printf("%d %s\n", nb_caracteres, argv[1]);
-    } else if (estLines == 0) {
-        printf("%d %s\n", nb_lignes, argv[1]);
-    } else if (estWords == 0) {
-        printf("%d %s\n", nb_mots, argv[1]);
     } else if (estWords == 0 && estLines == 0) {
         printf("%d %d %s\n", nb_lignes, nb_mots, argv[1]);
     } else if (estWords == 0 && estBytes == 0) {
         printf("%d %d %s\n", nb_caracteres, nb_mots, argv[1]);
     } else if (estLines == 0 && estBytes == 0) {
         printf("%d %d %s\n", nb_caracteres, nb_lignes, argv[1]);
-    }
+    } else if (estBytes == 0) {
+        printf("%d %s\n", nb_caracteres, argv[1]);
+    } else if (estLines == 0) {
+        printf("%d %s\n", nb_lignes, argv[1]);
+    } else if (estWords == 0) {
+        printf("%d %s\n", nb_mots, argv[1]);
     fclose(fichier);
 }
 
