@@ -13,7 +13,15 @@ implémentera aussi les trois options :
 #include <stdio.h>
 #include <stdlib.h>
 
+void mywc(int argc, char *argv[]) {
+    int i;
+    for (i=0; i<argc; i++) {
+        printf("%s", argv[i])
+    }
+}
+
 int main(int argc, char *argv[]) {
+    /*
     int c, nb_lignes = 0, nb_mots = 0, nb_caracteres = 0;
     FILE *fichier;
     fichier = fopen(argv[1], "r");
@@ -32,5 +40,7 @@ int main(int argc, char *argv[]) {
     }
     printf("%d %d %d %s\n", nb_lignes, nb_mots, nb_caracteres, argv[1]);
     fclose(fichier);
+    */
+   mywc(argc, &argv);
     return 0;
 }
