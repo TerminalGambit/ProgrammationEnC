@@ -16,11 +16,23 @@ implémentera aussi les trois options :
 
 void mywc(int argc, char *argv[]) {
     int i;
-    int estBytes = 0;
+    int estBytes = 1;
+    int estLines = 1;
+    int estWords = 1;
     for (i = 0; i < argc; i++) {
         printf("%s\n", argv[i]);
         if (strcmp(argv[i], "-c") == 0 || strcmp(argv[i], "--bytes") == 0) {
-            if (estBytes) {
+            if (estBytes == 0) {
+                printf("yay!");
+            }
+        }
+        if (strcmp(argv[i], "-l") == 0 || strcmp(argv[i], "--lines") == 0) {
+            if (estLines == 0) {
+                printf("yay!");
+            }
+        }
+        if (strcmp(argv[i], "-w") == 0 || strcmp(argv[i], "--words") == 0) {
+            if (estWords == 0) {
                 printf("yay!");
             }
         }
