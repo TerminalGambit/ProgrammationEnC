@@ -64,3 +64,31 @@ stdin/stdout
 == Début table allocation ==
 == Fin table allocation ==
 */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "allocation.h"
+
+int main(void) {
+    int *p;
+    int *q;
+    int *r;
+
+    p = allocation_malloc(sizeof(int));
+    allocation_bilan();
+
+    q = allocation_malloc(sizeof(int));
+    r = allocation_malloc(sizeof(int));
+    allocation_bilan();
+
+    allocation_free(q);
+    allocation_bilan();
+
+    allocation_free(r);
+    allocation_bilan();
+
+    allocation_free(p);
+    allocation_bilan();
+
+    return 0;
+}
