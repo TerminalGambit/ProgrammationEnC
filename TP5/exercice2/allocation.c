@@ -258,7 +258,7 @@ void *allocation_malloc_fonction(size_t taille, int ligne, char *fichier) {
 void allocation_bilan_fonction(void) {
     printf("%d free /%d malloc\n", 0, 1);
     printf("== Début table allocation ==\n");
-    printf("(void *) %p ligne %ld « %s »\n", 0x5646423982a0, 11, "main.c");
+    printf("%ld ligne %d « %s »\n", 0x5646423982a0, 11, "main.c");
     printf("== Fin table allocation ==\n\n");
 }
 /* Création de allocation_free_fonction */
