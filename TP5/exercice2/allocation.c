@@ -223,9 +223,15 @@ void* allocation_malloc_fonction(size_t size) {
 }
 
 /* Création de allocation_bilan_fonction */
-
+/* Exemple de output :
+0 free/1 malloc
+== Début table allocation ==
+0x5646423982a0 ligne 11 « main.c »
+== Fin table allocation ==
+*/
 void allocation_bilan_fonction(void) {
-
+    printf("== Début table allocation ==\n");
+    printf("== Fin table allocation ==\n");
 }
 /* Création de allocation_free_fonction */
 
