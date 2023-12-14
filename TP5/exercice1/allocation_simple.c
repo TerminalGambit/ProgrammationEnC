@@ -23,3 +23,7 @@ void mon_free(void *ptr) {
     NB_ALLOC--;
     free(ptr);
 }
+
+int main(void) {
+    return 0;
+}
