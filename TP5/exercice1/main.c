@@ -3,3 +3,6 @@
 d’afficher « Hello World ! » et un fichier Makefile comme vue dans le cours 5. Une fois que tout marche bien
 passez à la question suivante. */
 
+int main(void) {
+    printf("Hello World !");
+}
