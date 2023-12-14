@@ -6,7 +6,7 @@ SOURCE = $(wildcard *.c)
 OBJETS = $(SOURCE:.c=.o)
 all: $(EXECUTABLE)
 
-$(EXECUTABLE) = $(OBJETS)
+$(EXECUTABLE) : $(OBJETS)
 	$(CC) $(OPTIONS) $(OBJETS) -o $(EXECUTABLE)
 %.o: %.c
 	$(CC) $(OPTIONS) -MMD -c $<
