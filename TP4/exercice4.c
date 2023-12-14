@@ -30,6 +30,7 @@ void mywc(int argc, char *argv[]) {
         } 
         if (strcmp(argv[i], "-w") == 0 || strcmp(argv[i], "--words") == 0) {
             estWords = 0;
+            printf("Test\n");
         }
     }
     fichier = fopen(argv[1], "r");
