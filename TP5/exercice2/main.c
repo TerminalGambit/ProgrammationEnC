@@ -74,8 +74,6 @@ int main(void) {
     int *q;
     int *r;
 
-    liste_allocation liste = initialiser_liste();
-
     p = allocation_malloc(sizeof(int));
     allocation_bilan();
 
