@@ -226,6 +226,28 @@ int transfert(file *f) {
 /* 7. En utilisant la question précédente, réécrivez la fonction retrait, mais en commençant par transférer les données
 si la liste sortie est vide. La fonction prendra en argument un pointeur vers une file et renverra -1 si la file est vide. */
 
+int retire(file *f) {
+    if (f->indice_entree == f->indice_sortie) {
+        return -1;
+    }
+    if (f->indice_sortie == N) {
+        transfert(f);
+    }
+    return retire_naif(f);
+}
+
+/* On modifie maintenant la structure file afin de pouvoir changer dynamiquement la taille des tableaux.
+typedef struct {
+    int n;
+    int * entree ;
+    int indice_entree ;
+    int * sortie ;
+    int indice_sorties ;
+} file ;
+
+8. Écrire une fonction initialisation qui prend en argument un entier 𝑛 et qui renvoie un pointeur vers une file
+correctement allouée sur le tas.*/
+
 int main(void) {
     printf("Question 1\n");
     test_q1();
