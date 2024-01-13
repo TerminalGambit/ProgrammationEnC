@@ -248,6 +248,16 @@ typedef struct {
 8. Écrire une fonction initialisation qui prend en argument un entier 𝑛 et qui renvoie un pointeur vers une file
 correctement allouée sur le tas.*/
 
+file *initialisation(int n) {
+    file *f = malloc(sizeof(file));
+    f->n = n;
+    f->entree = malloc(n * sizeof(int));
+    f->sortie = malloc(n * sizeof(int));
+    f->indice_entree = 0;
+    f->indice_sortie = 0;
+    return f;
+}
+
 int main(void) {
     printf("Question 1\n");
     test_q1();
