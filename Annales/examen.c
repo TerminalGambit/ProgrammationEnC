@@ -49,6 +49,16 @@ void test_q2(void) {
     printf("\n");
 }
 
+/* 3. Que fait le code suivant ? On ne vous demande pas de paraphraser. Vous décrirez sa fonction et vous l’illustrerez
+par un exemple.
+
+int mystere(char * c) {
+char * oo = c ;
+while ( *(c++) != '\0') ;
+return c - oo - 1 ;
+}
+*/
+
 int main(void) {
     printf("Question 1\n");
     test_q1();
