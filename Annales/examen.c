@@ -192,6 +192,15 @@ file ajout(file f, int x) {
     return f;
 }
 
+/* 5. Écrire une fonction retire_naif qui prend en argument un pointeur vers une file (on supposera le tableau
+sortie non vide) et renvoie l’élément en tête de file. Cette procédure modifiera la file accessible via le pointeur. */
+
+int retire_naif(file *f) {
+    int x = f->sortie[f->indice_sortie];
+    f->indice_sortie++;
+    return x;
+}
+
 int main(void) {
     printf("Question 1\n");
     test_q1();
