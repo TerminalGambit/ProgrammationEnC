@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 /* 1. Écrire une fonction nombre_chiffres qui prend en argument une chaîne de caractères et renvoie le nombre de
 caractères correspondant à des chiffres. Par exemple nombre_chiffres("abc 45+") renverra 2. */
 
