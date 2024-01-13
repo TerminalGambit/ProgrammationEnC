@@ -97,7 +97,81 @@ void test_q5(void) {
     printf("x = %f, y = %f\n", x, y);
 }
 
+/* Problème (13 points)
+On cherche dans cet exercice à implémenter une file à partir de deux tableaux. Ce n’est pas forcément optimal, mais
+c’est un prétexte pour faire du C. En pratique, la file est séparée en deux tableaux : un premier auquel on ajoute les
+éléments et un second, duquel on les retire. Lorsque le second tableau est vide, on transfère le contenu du premier
+vers celui-ci.
+Exemple. Prenons la file abstraite suivante : → 3 5 7 2 1 → ; elle sera impléméntée en C par les deux
+tableaux ci-dessous.
+• entree : 7 5 3 ← (notez comme l’ordre est inversée par rapport à la file)
+• sortie : 2 1 →
+Les cases vides, représentent des valeurs indéfinies. Pour connaître à chaque instant le nombre de cases effectivement
+remplies on ajoute deux variables correspondant à des indices.
+— indice_entree represente la dernière case remplie du tableau entree (ici, la troisième case d’indice 2).
+— indice_sortie represente la première case vide du tableau sortie (ici aussi, la troisième case d’indice 2).
+Ainsi, si j’ajoute l’élément 10 (à la fin de la file) et que je supprime l’élément du début de la file (ici, 1), j’obtiens
+comme nouvelle file → 10 3 5 7 2 → La file sera alors codée par :
+• entree : 7 5 3 10 ← (et indice_entree vaut maintenant 3)
+• sortie : 2 → (et indice_sortie vaut maintenant 1)
+On vous donne la structure suivante définissant le type file.
 
+typedef struct {
+int entree[N] ;
+int indice_entree ;
+int sortie[N] ;
+int indice_sortie ;
+} file ;
+
+1. Définir la valeur N à 10 à l’aide d’une macro (en utilisant le préprocesseur).
+*/
+
+#define N 10
+
+typedef struct {
+int entree[N] ;
+int indice_entree ;
+int sortie[N] ;
+int indice_sortie ;
+} file ;
+
+/* 2. Que faut-il écrire comme code pour créer une nouvelle file sur la pile avec les indices correctement initialisés */
+
+file nouvelle_file(void) {
+    file f;
+    f.indice_entree = 0;
+    f.indice_sortie = 0;
+    return f;
+}
+
+/* Autre solution :
+
+file nouvelle_file(void) {
+    file f;
+    int i;
+    for (i = 0; i < N; i++) {
+        f.entree[i] = 0;
+        f.sortie[i] = 0;
+    }
+    f.indice_entree = 0;
+    f.indice_sortie = 0;
+    return f;
+}
+Autre façon de faire avec les flèches :
+
+file nouvelle_file(void) {
+    file f;
+    int i;
+    for (i = 0; i < N; i++) {
+        f->entree[i] = 0;
+        f->sortie[i] = 0;
+    }
+    f->indice_entree = 0;
+    f->indice_sortie = 0;
+    return f;
+}
+
+*/
 
 int main(void) {
     printf("Question 1\n");
