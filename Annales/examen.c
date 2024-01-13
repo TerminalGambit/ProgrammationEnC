@@ -66,10 +66,45 @@ son fonctionnement est le suivant :
     - on renvoie la différence entre le pointeur c (qui pointe sur le caractère '\0') et le pointeur oo (qui pointe sur le premier caractère de la chaine)
 */
 
+/* 4. Écrire une fonction echange, qui prend en argument deux pointeurs vers des flottants et qui échange leurs valeurs. Par exemple, si a pointe vers la valeur 3.5 et b pointe vers la valeur 2.0, l’appel de echange(a,b) fera pointer
+a vers 2.0 et b vers 3.5.*/
+
+void echange(float *a, float *b) {
+    float tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+
+void test_q4(void) {
+    float a = 3.5;
+    float b = 2.0;
+    printf("a = %f, b = %f\n", a, b);
+    echange(&a, &b);
+    printf("a = %f, b = %f\n", a, b);
+}
+
+/* 5. Utiliser la fonction echange pour compléter le code suivant. À la fin, les valeurs de x et y doivent être permutées.
+Votre code ne doit pas dépasser une ligne.
+float x = 2.0;
+float y = 3.0;
+/* ligne à compléter pour que x vaille 3.0 et y 2.0 */
+
+void test_q5(void) {
+    float x = 2.0;
+    float y = 3.0;
+    printf("x = %f, y = %f\n", x, y);
+    echange(&x, &y);
+    printf("x = %f, y = %f\n", x, y);
+}
+
+
+
 int main(void) {
     printf("Question 1\n");
     test_q1();
     printf("\nQuestion 2\n");
     test_q2();
+    printf("\nQuestion 4\n");
+    test_q4();
     return 0;
 }
