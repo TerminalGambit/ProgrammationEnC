@@ -1,0 +1,17 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/jackmassey/Desktop/L2/S3/ProgrammationC/ProgrammationEnC/TP2/exercice2'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _nouvel_horaire, symObjAddr: 0x0, symBinAddr: 0x1000036F8, symSize: 0x50 }
+  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _nouvel_horaire, symObjAddr: 0x0, symBinAddr: 0x1000036F8, symSize: 0x50 }
+  - { offsetInCU: 0x93, offset: 0x93, size: 0x8, addend: 0x0, symName: _question2, symObjAddr: 0x50, symBinAddr: 0x100003748, symSize: 0xE0 }
+  - { offsetInCU: 0xC5, offset: 0xC5, size: 0x8, addend: 0x0, symName: _afficher_horaire, symObjAddr: 0x130, symBinAddr: 0x100003828, symSize: 0x60 }
+  - { offsetInCU: 0xE9, offset: 0xE9, size: 0x8, addend: 0x0, symName: _question3, symObjAddr: 0x190, symBinAddr: 0x100003888, symSize: 0xA8 }
+  - { offsetInCU: 0x11B, offset: 0x11B, size: 0x8, addend: 0x0, symName: _ajout, symObjAddr: 0x238, symBinAddr: 0x100003930, symSize: 0xDC }
+  - { offsetInCU: 0x16D, offset: 0x16D, size: 0x8, addend: 0x0, symName: _question4, symObjAddr: 0x314, symBinAddr: 0x100003A0C, symSize: 0x10C }
+  - { offsetInCU: 0x19F, offset: 0x19F, size: 0x8, addend: 0x0, symName: _secondes_vers_horaire, symObjAddr: 0x420, symBinAddr: 0x100003B18, symSize: 0x80 }
+  - { offsetInCU: 0x1D5, offset: 0x1D5, size: 0x8, addend: 0x0, symName: _question5, symObjAddr: 0x4A0, symBinAddr: 0x100003B98, symSize: 0x150 }
+  - { offsetInCU: 0x207, offset: 0x207, size: 0x8, addend: 0x0, symName: _horaire_vers_secondes, symObjAddr: 0x5F0, symBinAddr: 0x100003CE8, symSize: 0x4C }
+  - { offsetInCU: 0x23D, offset: 0x23D, size: 0x8, addend: 0x0, symName: _question6, symObjAddr: 0x63C, symBinAddr: 0x100003D34, symSize: 0x13C }
+  - { offsetInCU: 0x26F, offset: 0x26F, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x778, symBinAddr: 0x100003E70, symSize: 0xF8 }
+...
