@@ -52,5 +52,6 @@ void test_q2(void) {
 int main(void) {
     print("Question 1\n");
     test_q1();
+    print("\nQuestion 2\n");
     return 0;
 }
