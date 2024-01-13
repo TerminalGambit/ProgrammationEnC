@@ -173,6 +173,25 @@ file nouvelle_file(void) {
 
 */
 
+/* 3. Écrire une fonction est_vide qui prend une file en paramètre et renvoie un booléean (c’est-à-dire un entier) pour
+indiquer si la file est vide. */
+
+int est_vide(file f) {
+    return f.indice_entree == f.indice_sortie;
+}
+
+/* 4. Écrire une fonction ajout qui prend une file en paramètre (et non un pointeur) et un entier x et renvoie une
+nouvelle file à laquelle on a ajouté l’entier x. Si la tableau entree est déjà complet, la fonction renverra NULL. */
+
+file ajout(file f, int x) {
+    if (f.indice_entree == N) {
+        return f;
+    }
+    f.entree[f.indice_entree] = x;
+    f.indice_entree++;
+    return f;
+}
+
 int main(void) {
     printf("Question 1\n");
     test_q1();
