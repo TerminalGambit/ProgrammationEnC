@@ -267,6 +267,12 @@ file1 *initialisation(int n) {
 
 /* 9. Écrire un fonction liberer qui prend en argument un pointeur vers une file et qui désalloue proprement la mémoire correspondante. */
 
+void liberer(file1 *f) {
+    free(f->entree);
+    free(f->sortie);
+    free(f);
+}
+
 int main(void) {
     printf("Question 1\n");
     test_q1();
