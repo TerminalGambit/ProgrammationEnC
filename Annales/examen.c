@@ -201,6 +201,28 @@ int retire_naif(file *f) {
     return x;
 }
 
+/* 6. Évidement un problème se pose si l’on veut lire une valeur et que le tableau sortie est vide. Écrire la fonction
+transfert qui copie les éléments du tableau entree vers le tableau sortie. La file sera passée en argument sous
+forme de pointeur. La fonction renverra -1 en cas d’erreur (si le tableau sortie était non vide) et 1 sinon.
+• 12 15 13 10 : entree
+• : sortie
+En partant de l’état précédent et en appelant la procédure transfert, on obtient l’état ci-dessous.
+• : entree
+• 10 13 15 12 : sortie */
+
+int transfert(file *f) {
+    if (f->indice_sortie != 0) {
+        return -1;
+    }
+    int i;
+    for (i = 0; i < f->indice_entree; i++) {
+        f->sortie[i] = f->entree[f->indice_entree - i - 1];
+    }
+    f->indice_sortie = f->indice_entree;
+    f->indice_entree = 0;
+    return 1;
+}
+
 int main(void) {
     printf("Question 1\n");
     test_q1();
