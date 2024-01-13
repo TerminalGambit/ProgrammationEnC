@@ -53,10 +53,17 @@ void test_q2(void) {
 par un exemple.
 
 int mystere(char * c) {
-char * oo = c ;
-while ( *(c++) != '\0') ;
-return c - oo - 1 ;
+    char * oo = c ;
+    while ( *(c++) != '\0') ;
+    return c - oo - 1 ;
 }
+*/
+
+/* le code mystere prend en argument une chaine de caractères et renvoie la longueur de cette chaine de caractères. 
+son fonctionnement est le suivant : 
+    - on initialise un pointeur oo sur le premier caractère de la chaine de caractères
+    - on parcourt la chaine de caractères jusqu'à rencontrer le caractère '\0' (fin de chaine)
+    - on renvoie la différence entre le pointeur c (qui pointe sur le caractère '\0') et le pointeur oo (qui pointe sur le premier caractère de la chaine)
 */
 
 int main(void) {
