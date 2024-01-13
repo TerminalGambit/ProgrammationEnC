@@ -273,6 +273,18 @@ void liberer(file1 *f) {
     free(f);
 }
 
+/* 10. Réecrire la fonction ajout pour doubler la valeur de n si le tableau entree est complet. */
+
+file1 *ajout1(file1 *f, int x) {
+    if (f->indice_entree == f->n) {
+        f->n *= 2;
+        f->entree = realloc(f->entree, f->n * sizeof(int));
+    }
+    f->entree[f->indice_entree] = x;
+    f->indice_entree++;
+    return f;
+}
+
 int main(void) {
     printf("Question 1\n");
     test_q1();
