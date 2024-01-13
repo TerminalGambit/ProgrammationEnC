@@ -223,6 +223,9 @@ int transfert(file *f) {
     return 1;
 }
 
+/* 7. En utilisant la question précédente, réécrivez la fonction retrait, mais en commençant par transférer les données
+si la liste sortie est vide. La fonction prendra en argument un pointeur vers une file et renverra -1 si la file est vide. */
+
 int main(void) {
     printf("Question 1\n");
     test_q1();
