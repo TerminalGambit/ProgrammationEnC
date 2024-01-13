@@ -23,13 +23,28 @@ initialise t3 en affectant chaque t3[i] (avec i<n) à la plus grande des valeurs
 par exemple, n=3, t1 = 12 5 13 et t2 = 20 2 13 , alors t3 devra être initialisé à 20 5 13 . */
 
 void fusion(int n, int t1[], int t2[], int t3[]) {
-    for (int i = 0; i < n; i++) {
+    int i;
+    for (i = 0; i < n; i++) {
         if (t1[i] > t2[i]) {
             t3[i] = t1[i];
         } else {
             t3[i] = t2[i];
         }
     }
+}
+
+void test_q2(void) {
+    int n = 3;
+    int i;
+    int t1[] = {12, 5, 13};
+    int t2[] = {20, 2, 13};
+    int t3[] = {0, 0, 0};
+    fusion(n, t1, t2, t3);
+    printf("t3 = ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", t3[i]);
+    }
+    printf("\n");
 }
 
 int main(void) {
