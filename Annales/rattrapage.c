@@ -24,3 +24,4 @@ int indice_plus_longue(char** tableau, int taille) {
     return indice_max;
 }
 
+/* Regarder le corrigé; pas de temps à perdre sur les révisions. */
