@@ -211,10 +211,10 @@ En partant de l’état précédent et en appelant la procédure transfert, on o
 • 10 13 15 12 : sortie */
 
 int transfert(file *f) {
+    int i;
     if (f->indice_sortie != 0) {
         return -1;
     }
-    int i;
     for (i = 0; i < f->indice_entree; i++) {
         f->sortie[i] = f->entree[f->indice_entree - i - 1];
     }
